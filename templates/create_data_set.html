@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block main %}
+    <div class="mb-3">
+        Welcome to FM Data Analytics.
+    
+    <div class="mb-3">
+        Please upload csv files from FM
+        <form action="/create" method="post" enctype="multipart/form-data">
+            <label for="players_csv">Upload players' data csv file</label>
+            <input type="file" name="players_csv" accept=".csv, text/csv">
+            
+            <label for="possessesion_csv">Upload possession data csv file</label>
+            <input type="file" name="possession_csv" accept=".csv, text/csv">
+            <input type="submit" value="Upload">
+
+        </form>
+    </div>
+
+
+{% endblock %}

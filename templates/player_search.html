@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %} Player Search {% endblock %}
+
+{% block main %} 
+
+<form action="/player_search" method="post">
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="uid" placeholder="Player UID" type="text">
+
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="wage" placeholder="Wage (optional)" type="number">
+
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="transfer_value" 
+    placeholder="Transfer Value (optional)" type="number">
+
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="age" placeholder="Age (optional)" type="number">
+
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="matches" placeholder="Number of matches (optional)" 
+    type="number">
+
+    <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="percentage" placeholder="Percentage (optional)" 
+    type="number">
+
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+
+{% endblock %}
