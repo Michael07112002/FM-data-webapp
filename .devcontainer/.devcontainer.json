@@ -1,0 +1,16 @@
+{
+    "name": "FM flask web app Dev Enviroment", 
+    "image": "mcr.microsoft.com/devcontainers/python:3.11", 
+    "postCreateCommand": "pip inst -r requirements.txt", 
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "bungcip.better-toml",
+                "samuelcolvin.jinjahtml"
+            ]
+        }
+    }
+} 
+
