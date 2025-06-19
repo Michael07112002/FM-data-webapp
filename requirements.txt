@@ -1,11 +1,7 @@
-os 
 cs50
 flask 
 Flask-Session
-werkzeug.security
+Werkzeug
 pandas
-sqlite3
 numpy
-re
-functools
 python-dotenv
