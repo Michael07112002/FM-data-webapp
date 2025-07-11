@@ -157,10 +157,7 @@ def player_search():
     if request.method == "POST": 
         conn = sqlite3.connect("FM.db")
         df = pd.read_sql("SELECT * FROM fm_data", conn)
-        # Try and clean up by using list (DO NOT know if this will work though)
-        # parameters = ["uid", "wage", "transfer_value", "age", "matches", "percentage"]
-        # for parameter in parameters:
-        #     parameter = request.form.get(parameter)
+
         uid = request.form.get("uid")
         wage_input = request.form.get("wage")
         wage = int(wage_input) if wage_input else None
@@ -185,4 +182,4 @@ def player_search():
     return render_template("player_search.html")
 
 
-# Issues uploading csv file need to FIX
+

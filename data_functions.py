@@ -12,12 +12,6 @@ data = pd.read_csv("/mnt/c/Users/Micha/Downloads/Data_Season4_Summer_Improved.cs
 # data.columns = data.iloc[0]  # Use the first row as header
 
 
-poss = pd.read_csv("/mnt/c/Users/Micha/Downloads/Possession_Season4_Summer.csv", header=0) 
-poss.columns = poss.columns.str.strip()
-
-
-pam = pd.merge(data, poss, on = "Club")
-
 def csv_file_cleaner_and_manipulator(player_data_csv, possession_data_csv): 
     player_data_df = pd.read_csv(player_data_csv, skiprows=1, header=0)
     possession_data_df = pd.read_csv(possession_data_csv, header=0)
@@ -189,7 +183,7 @@ def percentiles(df):
         df[f"{stat} Percentile"] = round(df.groupby("Position Group")[stat].rank(pct=True) * 100, 0)
 
 
-#df = csv_file_cleaner_and_manipulator("/mnt/c/Users/Micha/Downloads/Data_Season4_Summer_Improved.csv", "/mnt/c/Users/Micha/Downloads/Possession_Season4_Summer.csv")
+
 
 # Create the player search function
 position_group_stats = {
@@ -294,7 +288,9 @@ def player_search(player_uid, df, wage=None, transfer_value=None, age=None, matc
     columns = ["Name", "Position", "Division_x", "Club", "Age", "Transfer Value", "Wage"] + position_group_stats[player_position]
     
     return filtered_df[columns]
-        
+
+
+# Separate function created to check that percentiles were calculated
 def show_percentiles(player_uid, df):
     player_percentiles = df.loc[df["UID"] == f"{player_uid}"]
     stats1 = ["(NP-xG + xA)/90", "Dist/90", "Drb/90", "CCC/90", "Tck R", "Drb/90", "CCC/90", "Tck R"]
@@ -306,7 +302,5 @@ def show_percentiles(player_uid, df):
     print(player_percentiles[[f"{i} Percentile" for i in stats2]])
 
     
-df = csv_file_cleaner_and_manipulator("/mnt/c/Users/Micha/Downloads/Data_Season4_Summer_Improved.csv", 
-                                      "/mnt/c/Users/Micha/Downloads/Possession_Season4_Summer.csv")
-show_percentiles(2000025761, df)
+
 
