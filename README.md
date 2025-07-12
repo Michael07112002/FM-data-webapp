@@ -10,11 +10,16 @@ This web app allows users to upload and analyse data exported from Football Mana
 - Filter and find suitable transfer targets
 - Display table of results
 
-  ## Screenshots
+## Screenshots
+- Registration page
   ![Registration page](registration.png)
+- Login page
   ![Login page](Login.png)
+- Upload page
   ![Upload page](Upload.png)
+- Player search page
   ![Player search page](PLayer_search.png)
+- Player search results page
   ![Search results page](Results.png)
 
   ## Existing bugs to be fixed
