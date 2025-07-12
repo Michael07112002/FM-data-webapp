@@ -18,7 +18,7 @@ This web app allows users to upload and analyse data exported from Football Mana
 - Upload page
   ![Upload page](Upload.png)
 - Player search page
-  ![Player search page](PLayer_search.png)
+  ![Player search page](Player_search.png)
 - Player search results page
   ![Search results page](Results.png)
 
