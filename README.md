@@ -7,7 +7,8 @@ This web app allows users to upload and analyse data exported from Football Mana
 - Upload CSV exports from Football Manager
 - Clean and preprocess player and team data
 - Adjust stats based on team possession
-- Filter and find suitable transfer targets
+- Filter and find suitable transfer targets given criteria inputted from the user
+- Search parameter for the user are: the UID (Unique ID) for the player within Football Manager (this is the player the user wants to find a replacement for); wage which if inputted filters for players with a wage less than or equal to the input or if no input is given filters on the player inputted by the user's wage; age which is filtered in the same manor as wage; needs to be finished ...
 - Display table of results
 
 ## Screenshots
