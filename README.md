@@ -32,6 +32,7 @@ This web app allows users to upload and analyse data exported from Football Mana
   - HTML/CSS
  
   ## Future Improvements
+  - Take input of html file, saving the user from moving the raw outputted data from Football Manager into a csv file
   - Add visualsiations of data
   - Implement percentiles
   - Add a profile page for each player
