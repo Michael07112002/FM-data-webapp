@@ -6,11 +6,6 @@ import re
 # Remember the division column header has been loaded in as "Division_x" so this could cause bugs in future #
 #############################################################################################################
 
-# Read in csv file into DataFrames and create the pam df which we will use 
-data = pd.read_csv("/mnt/c/Users/Micha/Downloads/Data_Season4_Summer_Improved.csv", skiprows=1, header=0) 
-# data = data.iloc[1:].reset_index(drop=True)
-# data.columns = data.iloc[0]  # Use the first row as header
-
 
 def csv_file_cleaner_and_manipulator(player_data_csv, possession_data_csv): 
     player_data_df = pd.read_csv(player_data_csv, skiprows=1, header=0)
@@ -103,7 +98,7 @@ def distance_clean(df):
 
 
 def clean_percent_stats(df): 
-    stats = ["Hdr %", "Tck R"]
+    stats = ["Hdr %", "Tck R", "Pas %"]
     for stat in stats: 
             df[stat] = df[stat].replace("-", "0")
             df[stat] = df[stat].str.replace("%", "", regex=False)
@@ -270,7 +265,14 @@ def player_search(player_uid, df, wage=None, transfer_value=None, age=None, matc
     conditions = []
 
     for stat in position_group_stats[player_position]: 
-        if stat == "Poss Lost/90":
+        print(f"Stat: {stat}")
+        print("player_stats_series[stat]:", player_stats_series[stat])
+        print("player_stats_series[stat].iloc[0]:", player_stats_series[stat].iloc[0])
+        print("percentage:", percentage, type(percentage))
+        print("df_reduced[stat]:", df_reduced[stat].head())
+        if stat == "Mins": 
+            continue
+        elif stat == "Poss Lost/90":
             conditions.append(df_reduced[stat] <= player_stats_series[stat].iloc[0] * percentage)
         else: 
             conditions.append(df_reduced[stat] >= player_stats_series[stat].iloc[0] * percentage)

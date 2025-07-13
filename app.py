@@ -70,7 +70,7 @@ def register():
                 db.execute("INSERT INTO users (username, hash) VALUES (?, ?)", username, generate_password_hash(password))
 
                 # Remember the user has logged in
-                session["user_id"] = db.execute("SELECT user_id FROM users WHERE username = ?", username)
+                session["user_id"] = db.execute("SELECT user_id FROM users WHERE username = ?", username)[0]["user_id"]
 
                 # Redirect to homepage
                 return redirect("/")
@@ -143,6 +143,8 @@ def create():
         df = data_functions.csv_file_cleaner_and_manipulator(players_csv, possession_csv)
 
         # Add the data frame to the database and create user_id column to identify whose data is whose
+        print("Session user_id:", session["user_id"], type(session["user_id"]))
+        print("DF shape:", df.shape)
         df["user_id"] = session["user_id"]
         conn = sqlite3.connect("FM.db")
         df.to_sql("fm_data", conn, if_exists="replace", index=False)
@@ -172,7 +174,7 @@ def player_search():
         matches = int(matches_input) if matches_input else None
 
         percentage_input = request.form.get("percentage") 
-        percentage = int(percentage_input) if percentage_input else None
+        percentage = float(percentage_input) if percentage_input else None
 
         df = data_functions.player_search(uid, df, wage, transfer_value, age, matches, percentage)
         html_table = df.to_html(classes="table table-striped", index=False)
