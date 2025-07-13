@@ -1,6 +1,6 @@
 # Football Manager Data Insights Web App 
 
-This web app allows users to upload and analyse data exported from Football Manager, providing insight into player performance, possession-adjusted stats, and potential transfer targets. It's designed for Football Manager players looking to introduce statictical analysis of players into their saves, as is done by the top professional clubs. This project was created as the final project to CS50X so all of the Flask configurations in app.py have come from that course.
+This web app allows users to upload and analyse data exported from Football Manager, providing insight into player performance, possession-adjusted stats, and potential transfer targets. It's designed for Football Manager players looking to introduce statictical analysis of players into their saves, as is done by the top professional clubs. This project was created as the final project to CS50X so all of the Flask configurations in app.py have come from that course. Currently the repo is not setup fully to run in a codespace.
 
 ## Features 
 - Register, login and log out for users
